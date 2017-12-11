@@ -13,9 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.hj.loginutil.data.model.StateType;
-import com.hj.loginutil.data.model.UserModel;
-import com.hj.loginutil.interfaces.OnLoginStateChange;
+import com.hj.userutil.model.StateType;
+import com.hj.userutil.model.UserModel;
+import com.hj.userutil.interfaces.OnLoginStateChange;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;

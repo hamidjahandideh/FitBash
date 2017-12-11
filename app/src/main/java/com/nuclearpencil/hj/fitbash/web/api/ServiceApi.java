@@ -1,7 +1,7 @@
 package com.nuclearpencil.hj.fitbash.web.api;
 
 import com.google.gson.JsonObject;
-import com.hj.loginutil.data.model.UserModel;
+import com.hj.userutil.model.UserModel;
 import com.nuclearpencil.hj.fitbash.data.model.ProgramModel;
 
 import java.util.ArrayList;

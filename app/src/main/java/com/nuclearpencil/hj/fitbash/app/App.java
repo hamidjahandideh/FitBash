@@ -2,7 +2,7 @@ package com.nuclearpencil.hj.fitbash.app;
 
 import android.app.Application;
 
-import com.hj.loginutil.UserUtil;
+import com.hj.userutil.UserUtil;
 import com.nuclearpencil.hj.fitbash.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;

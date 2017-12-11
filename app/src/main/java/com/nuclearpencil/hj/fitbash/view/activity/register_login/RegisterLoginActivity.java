@@ -18,10 +18,10 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.hj.internetviewer.model.ResponseNullException;
-import com.hj.loginutil.data.model.StateType;
-import com.hj.loginutil.data.model.UserModel;
-import com.hj.loginutil.data.model.UserType;
-import com.hj.loginutil.interfaces.OnLoginStateChange;
+import com.hj.userutil.model.StateType;
+import com.hj.userutil.model.UserModel;
+import com.hj.userutil.model.UserType;
+import com.hj.userutil.interfaces.OnLoginStateChange;
 import com.nuclearpencil.hj.fitbash.R;
 import com.nuclearpencil.hj.fitbash.app.App;
 import com.nuclearpencil.hj.fitbash.app.ge_WC;

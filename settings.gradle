@@ -1,4 +1,5 @@
 include ':app', ':Calendar', ':InternetViewer', ':UserUtil'
+
 project(':Calendar').projectDir = new File('Modules/Calendar')
 project(':InternetViewer').projectDir = new File('Modules/InternetViewer')
 project(':UserUtil').projectDir = new File('Modules/UserUtil')

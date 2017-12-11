@@ -3,7 +3,7 @@ package com.nuclearpencil.hj.fitbash.util;
 import android.content.Context;
 import android.os.Environment;
 
-import com.hj.loginutil.R;
+import com.hj.userutil.R;
 
 import java.io.File;
 
