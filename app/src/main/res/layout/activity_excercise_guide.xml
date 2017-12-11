@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_videos"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#555">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:gravity="right">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="نحوه ی اجرای حرکت"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/aw_guide_book"
+                android:layout_marginLeft="5dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#fff"
+            android:padding="5dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right|center_vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="#fff"
+                    android:background="#2196F3"
+                    android:padding="3dp"
+                    android:text="9.0"
+                    android:layout_marginRight="16dp"/>
+
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/item_excercise_bg"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"/>
+
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/item_excercise_bg"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="حرکت جلو بازو"
+                android:textSize="20sp"
+                android:textColor="#555"
+                android:layout_gravity="right" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="قفسه ی سینه"
+                    android:textColor="#2196F3"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="عضله :"
+                    android:textColor="#555"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="دمبل"
+                    android:textColor="#2196F3"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="تجهیزات :"
+                    android:textColor="#555"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="استحکام"
+                    android:textColor="#2196F3"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="نوع تمرین :"
+                    android:textColor="#555"/>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="فیلم آموزش این حرکت"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="مرحله به مرحله :"
+            android:layout_gravity="right"/>
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="برای انجام این مرحله شما اول دمبل میزنید ، تعداد دمبل زدن در لیست مشخص شده است که حتما باید به لیست توجه کافی را داشته باشیدبرای انجام این مرحله شما اول دمبل میزنید ، تعداد دمبل زدن در لیست مشخص شده است که حتما باید به لیست توجه کافی را داشته باشیدبرای انجام این مرحله شما اول دمبل میزنید ، تعداد دمبل زدن در لیست مشخص شده است که حتما باید به لیست توجه کافی را داشته باشیدبرای انجام این مرحله شما اول دمبل میزنید ، تعداد دمبل زدن در لیست مشخص شده است که حتما باید به لیست توجه کافی را داشته باشیدبرای انجام این مرحله شما اول دمبل میزنید ، تعداد دمبل زدن در لیست مشخص شده است که حتما باید به لیست توجه کافی را داشته باشید"/>
+
+    </LinearLayout>
+
+</ScrollView>

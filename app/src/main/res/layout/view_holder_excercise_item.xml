@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_base"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#eee"
+    android:gravity="right|top"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:text="1"
+            android:textColor="#fff"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/item_number_bg"
+            android:gravity="center"/>
+
+
+        <TextView
+            android:id="@+id/tvName"
+            android:text="2 دمبل جلو"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#333"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:layout_toLeftOf="@+id/tv_number"
+            android:layout_marginRight="5dp"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/ic_arrow_back_blue_500_24dp"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|right">
+
+        <ImageView
+            android:id="@+id/ivPicture1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/item_excercise_bg"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"/>
+
+        <ImageView
+            android:id="@+id/ivPicture2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/item_excercise_bg"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:layout_gravity="right">
+
+
+                <TextView
+                    android:id="@+id/tvMuscles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="پشت بازو"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#2196F3"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="عضلات درگیر :"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#444"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="4dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:layout_gravity="right">
+
+                <TextView
+                    android:id="@+id/tvEquipment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="دمبل"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#2196F3"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="تجهیزات :"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#444"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="4dp"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:layout_gravity="right">
+
+                <TextView
+                    android:id="@+id/tvExerciseType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="قدرتی"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#2196F3"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="نوع تمرین :"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#444"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="4dp"/>
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#444"
+        android:gravity="right"
+        android:padding="2dp">
+
+        <TextView
+            android:id="@+id/tvTotalRepeats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#999"
+            android:textSize="9sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:text="|"
+            android:layout_margin="3dp"/>
+
+        <TextView
+            android:id="@+id/tvSets"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#eee"
+            android:textSize="9sp"/>
+
+
+    </LinearLayout>
+</LinearLayout>
+

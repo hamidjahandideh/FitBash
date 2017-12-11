@@ -1,0 +1,186 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/fragment_dark_background">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="برنامه های تمرینی را دنبال کنید "
+        android:textSize="22sp"
+        android:layout_margin="3dp"/>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_template"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardElevation="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eee"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/iv_template"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_assignment_turned_in_blue_500_24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/iv_template"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="استفاده از برنامه های آماده"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#555"
+                    android:textSize="22sp"/>
+
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_arrow_back_blue_500_24dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"/>
+
+
+        </RelativeLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_newprogram"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardElevation="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eee"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/iv_newprogram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_fiber_new_blue_500_24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/iv_newprogram"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ایجاد برنامه ی جدید"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#555"
+                    android:textSize="22sp"/>
+
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_arrow_back_blue_500_24dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"/>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_savedprogram"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardElevation="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eee"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/iv_savedprogram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_history_blue_500_24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/iv_savedprogram"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="برنامه های ذخیره شده"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#555"
+                    android:textSize="22sp"/>
+
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_arrow_back_blue_500_24dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"/>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+</LinearLayout>

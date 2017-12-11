@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_workout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|right">
+
+        <ImageView
+            android:id="@+id/iv_muscles"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:background="@drawable/aw_muscles_worked"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="3dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:layout_marginRight="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/iv_avatar"
+            android:layout_toRightOf="@+id/iv_muscles">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="نلانالبتالبتالبتالبتالبتابتالبتالباتبل"
+                android:textColor="#333"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:textSize="22sp"
+                tools:fontPath="fonts/BYEKAN.TTF"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:layout_gravity="right">
+
+
+                <TextView
+                    android:id="@+id/tvGoal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="بازوها"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#2196F3"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="هدف اصلی :"
+                    android:textColor="#333"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textSize="13sp"
+                    android:layout_marginLeft="4dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:layout_gravity="right">
+
+
+                <TextView
+                    android:id="@+id/tvMusclesInvolved"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="همه"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#2196F3"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="تمرین برای :"
+                    android:textColor="#333"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+
+                    android:textSize="13sp"
+                    android:layout_marginLeft="4dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:layout_gravity="right">
+
+
+                <TextView
+                    android:id="@+id/tvLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="همه"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#2196F3"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="سطح :"
+                    android:textColor="#333"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textSize="13sp"
+                    android:layout_marginLeft="4dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:layout_gravity="right">
+
+
+                <TextView
+                    android:id="@+id/tvCreator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="مهدی و رضا"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#2196F3"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="طراح :"
+                    android:textColor="#333"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textSize="13sp"
+                    android:layout_marginLeft="4dp"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="98dp"
+            android:layout_height="98dp"
+            android:background="@drawable/profile_noimage"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="5dp"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_margin="6dp">
+
+            <TextView
+                android:text="تعداد تمرین"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#333"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/tvTotalExercise"
+                android:text="12"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:textSize="24sp"
+                android:textColor="#eee"
+                android:background="@drawable/aw_cycrle_bg"
+                android:gravity="center"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_margin="6dp">
+
+            <TextView
+                android:text="تعداد ست"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#333"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/tvTotalSet"
+                android:text="5.5"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:textSize="20sp"
+                android:textColor="#eee"
+                android:background="@drawable/aw_cycrle_bg"
+                android:gravity="center"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_margin="6dp">
+
+            <TextView
+                android:text="مجموع زمان تمرین"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#333"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/tvTotalTime"
+                android:text="00:48"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:textSize="20sp"
+                android:textColor="#eee"
+                android:background="@drawable/aw_cycrle_bg"
+                android:gravity="center"/>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_margin="6dp">
+
+            <TextView
+                android:text="مجموع هوازی"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#333"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/tvTotalCardio"
+                android:text="4 ساعت \n 27 دقیقه"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:textSize="12sp"
+                android:textColor="#eee"
+                android:background="@drawable/aw_cycrle_bg"
+                android:gravity="center"/>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

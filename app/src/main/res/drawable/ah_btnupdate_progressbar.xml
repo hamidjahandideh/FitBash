@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	 <item>
+		<shape android:shape="oval" >
+		
+		    <!-- Here is the corner gradient -->
+		     <gradient   android:angle="90"   android:startColor="#00CCFF"  android:endColor="#005599"   android:type="linear" />      
+		        
+		     <!-- Here is the corner Stroke -->
+		   <stroke android:width="13dp" android:color="#CCC" android:dashWidth="1dp"   android:dashGap="2dp" />
+		     
+		</shape>
+	</item>
+	<item>  <!-- Gray Ring  -->
+		<shape android:shape="ring" android:innerRadiusRatio="4"
+		    android:innerRadius="43dip"
+	    android:thickness="6dp"
+	    android:useLevel="false" >
+				        <gradient
+            android:angle="90"
+            android:endColor="#EEEEEE"
+            android:startColor="#BBBBBB"
+            android:type="linear"
+            android:useLevel="false" />
+		</shape>
+	</item>
+	
+	<item> <!-- White Ring  -->
+	<shape android:shape="ring" 
+	    android:thicknessRatio="3.4"
+		android:innerRadius="0dip"
+    	android:useLevel="false" >
+	    <solid android:color="#FFFFFF" > </solid>
+	    </shape>
+	</item>
+
+</layer-list>

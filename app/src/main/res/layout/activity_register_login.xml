@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/arl_video_shadow"
+        android:fitsSystemWindows="true" />
+
+
+    <RelativeLayout
+        android:id="@+id/rl_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="180dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/arl_logo"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="70dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tv_register"
+                android:text="ثبت نام"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="100dp"
+                android:textSize="24sp"
+                android:textColor="#44A6F5"/>
+
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:text="ورود"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textColor="#44A6F5"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_login"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arl_logo_text" />
+
+        <EditText
+            android:id="@+id/et_l_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableRight="@drawable/ic_person_grey_700_24dp"
+            android:hint="نام کاربری"
+            android:gravity="center"
+            android:background="#fff"
+            android:textColorHint="#777"
+            android:textColor="#333"
+            android:padding="5dp"
+            android:textSize="20sp"/>
+
+
+        <EditText
+            android:id="@+id/et_l_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:drawableRight="@drawable/ic_lock_grey_700_24dp"
+            android:hint="رمز عبور"
+            android:inputType="textPassword"
+            android:gravity="center"
+            android:background="#fff"
+            android:textColorHint="#777"
+            android:textColor="#333"
+            android:padding="5dp"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/b_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ورود"
+            android:background="#44A6F5"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/iv_l_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_arrow_back_blue_500_36dp"
+            android:layout_marginTop="15dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_register"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arl_logo_text" />
+
+        <EditText
+            android:id="@+id/et_r_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableRight="@drawable/ic_person_grey_700_24dp"
+            android:hint="نام کاربری"
+            android:gravity="center"
+            android:background="#fff"
+            android:textColorHint="#777"
+            android:textColor="#333"
+            android:padding="5dp"
+            android:textSize="20sp"/>
+
+
+        <EditText
+            android:id="@+id/et_r_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:drawableRight="@drawable/ic_lock_grey_700_24dp"
+            android:hint="رمز عبور"
+            android:inputType="textPassword"
+            android:gravity="center"
+            android:background="#fff"
+            android:textColorHint="#777"
+            android:textColor="#333"
+            android:padding="5dp"
+            android:textSize="20sp"/>
+
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:drawableRight="@drawable/ic_keyboard_arrow_left_grey_700_24dp"
+            android:hint="اسم واقعی (اختیاری)"
+            android:gravity="center"
+            android:background="#fff"
+            android:textColorHint="#777"
+            android:textColor="#333"
+            android:padding="5dp"
+            android:textSize="20sp"/>
+
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:drawableRight="@drawable/ic_keyboard_arrow_left_grey_700_24dp"
+            android:hint="ایمیل"
+            android:gravity="center"
+            android:background="#fff"
+            android:textColorHint="#777"
+            android:textColor="#333"
+            android:padding="5dp"
+            android:textSize="20sp"/>
+
+
+        <TextView
+            android:id="@+id/tv_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:drawableRight="@drawable/ic_keyboard_arrow_left_grey_700_24dp"
+            android:hint="تاریخ تولد"
+            android:gravity="center"
+            android:background="#fff"
+            android:textColorHint="#777"
+            android:textColor="#333"
+            android:padding="5dp"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/b_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ثبت نام"
+            android:background="#44A6F5"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/iv_r_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_arrow_back_blue_500_36dp"
+            android:layout_marginTop="15dp"/>
+
+    </LinearLayout>
+
+
+</FrameLayout>

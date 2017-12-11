@@ -1,0 +1,52 @@
+
+some lag in scrolling findprograms
+
+set pushFragment to interface to not using of specific Activity(HomeActivity) in code
+
+
+
+ProgramAdapter :
+
+            ProgramHeaderViewHolder holder=new ProgramHeaderViewHolder(context,layoutInflater.inflate(R.layout.view_holder_program_header,parent,false));
+            holder.setIsRecyclable(false);
+
+
+
+Support RightToLeft in manifest [ cant deactive to using calendar ]
+
+1 - GymFrgment
+
+ExcerciseViewHolder :
+        tvTotalRepeats.setText(String.format("%s سری تکرار می شود",exerciseModel.getExerciseType()));
+        tvSets.setText(String.format("%s ست",exerciseModel.getExerciseType()));
+
+WorkoutViewHolder :
+set TotalSets, Title
+save button in WorkoutFragment
+
+
+error : bottomSheet items show of left side in tablet size
+
+
+error (may be ) in future : in ProgramFragment , ProgramViewHolder sake that this show error if fragments use of other Activity
+                HomeActivity activity=(HomeActivity) getActivity();
+                activity.pushFragment(new FindProgramFragment());
+
+
+test : FindProgramFragment scrolling in android older version
+
+
+
+
+
+log :
+HomeActivity
+android:configChanges="orientation|screenSize" in manifest
+
+and added this code to not show lost bottomSheet To user :
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        bottomSheetLayout.dismissSheet();
+    }

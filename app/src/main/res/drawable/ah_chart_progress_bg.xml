@@ -1,0 +1,56 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Define the background properties like color etc -->
+    <item android:id="@android:id/background" >
+        <shape android:shape="oval" >
+            <!--<gradient   android:angle="90"   android:startColor="#00CCFF"  android:endColor="#005599"   android:type="linear" />-->
+
+            <stroke android:width="13dp" android:color="#CCC" android:dashWidth="10dp"   android:dashGap="5dp" />
+            <!--<stroke android:color="#fff" android:dashWidth="4dp" android:width="7dp" android:dashGap="4dp" />-->
+
+        </shape>
+    </item>
+
+    <!-- Define the progress properties like start color, end color etc -->
+    <item android:id="@android:id/progress" android:gravity="fill"  android:bottom="-13dp" android:top="-13dp" android:left="-13dp" android:right="-13dp">
+
+        <!--<bitmap android:src="@drawable/ah_chart_progress_blue" />-->
+
+
+        <rotate
+            android:fromDegrees="270"
+            android:toDegrees="270"
+            android:pivotX="50%"
+            android:pivotY="50%">
+
+            <shape
+                android:shape="ring" android:innerRadius="66dp"  android:thickness="13dp" >
+                <solid android:color="#41a3d2"/>
+                <!--<stroke android:color="#41a3d2" android:dashWidth="4dp" android:width="7dp" android:dashGap="4dp"  />-->
+
+            </shape>
+
+        </rotate>
+
+    </item>
+
+
+
+    <item  >
+        <rotate
+            android:fromDegrees="273"
+            android:toDegrees="273"
+            android:pivotX="50%"
+            android:pivotY="50%">
+
+            <shape android:shape="oval" >
+                <!--<gradient   android:angle="90"   android:startColor="#00CCFF"  android:endColor="#005599"   android:type="linear" />-->
+
+                <stroke android:width="13dp" android:color="#303030" android:dashWidth="5dp"   android:dashGap="10dp" />
+
+            </shape>
+        </rotate>
+
+    </item>
+
+</layer-list>
