@@ -1,4 +1,4 @@
-package com.nuclearpencil.hj.fitbash.data.enums;
+package com.nuclearpencil.hj.fitbash.web.api;
 
 /**
  * Created by hamid on 6/28/17.

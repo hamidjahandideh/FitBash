@@ -45,7 +45,7 @@ public class RegisterLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        App.userUtil.addListener(new OnLoginStateChange() {
+        App.userUtil.addLoginStateListener(new OnLoginStateChange() {
             @Override
             public void onLoginStateChange(StateType stateType, UserModel user) {
 

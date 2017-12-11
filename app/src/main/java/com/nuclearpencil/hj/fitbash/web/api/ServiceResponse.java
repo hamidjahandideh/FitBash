@@ -2,12 +2,7 @@ package com.nuclearpencil.hj.fitbash.web.api;
 
 
 
-import com.google.gson.annotations.SerializedName;
-import com.nuclearpencil.hj.fitbash.data.enums.ResponseStatus;
-
 import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by hamid on 6/28/17.
