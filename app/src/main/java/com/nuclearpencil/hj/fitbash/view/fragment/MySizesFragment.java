@@ -32,6 +32,7 @@ public class MySizesFragment extends Fragment {
 
 
 
+
         return rootview;
 
     }
