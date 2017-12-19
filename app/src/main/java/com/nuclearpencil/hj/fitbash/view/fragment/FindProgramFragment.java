@@ -15,7 +15,7 @@ import com.hj.internetviewer.enums.ListModel;
 import com.hj.internetviewer.interfaces.LoadItems;
 import com.hj.internetviewer.model.ResponseNullException;
 import com.nuclearpencil.hj.fitbash.R;
-import com.nuclearpencil.hj.fitbash.app.ge_WC;
+import com.nuclearpencil.hj.fitbash.web.ge_WC;
 import com.nuclearpencil.hj.fitbash.data.model.ProgramModel;
 import com.nuclearpencil.hj.fitbash.view.adapter.ProgramAdapter;
 

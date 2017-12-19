@@ -1,11 +1,10 @@
-package com.nuclearpencil.hj.fitbash.view.activity.register_login;
+package com.nuclearpencil.hj.fitbash.view.activity;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,9 +23,8 @@ import com.hj.userutil.model.UserType;
 import com.hj.userutil.interfaces.OnLoginStateChange;
 import com.nuclearpencil.hj.fitbash.R;
 import com.nuclearpencil.hj.fitbash.app.App;
-import com.nuclearpencil.hj.fitbash.app.ge_WC;
+import com.nuclearpencil.hj.fitbash.web.ge_WC;
 import com.nuclearpencil.hj.fitbash.util.ToastUtil;
-import com.nuclearpencil.hj.fitbash.view.activity.home.HomeActivity;
 import com.nuclearpencil.hj.fitbash.web.api.ServiceApi;
 import com.nuclearpencil.hj.fitbash.web.api.ServiceResponse;
 
@@ -36,9 +34,8 @@ import ir.hamsaa.persiandatepicker.util.PersianCalendar;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class RegisterLoginActivity extends AppCompatActivity {
+public class RegisterLoginActivity extends BaseActivity {
 
 
     @Override
@@ -50,6 +47,7 @@ public class RegisterLoginActivity extends AppCompatActivity {
             public void onLoginStateChange(StateType stateType, UserModel user) {
 
             }
+
         });
 
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -116,8 +114,11 @@ public class RegisterLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //region todo: temp
                 UserModel user=new UserModel(UserType.Normal,"1","hamid","asdasd","http://www.google.com","www.asdsad@sdasdas.com","13123123213");
                 App.userUtil.setLogin(user);
+                startActivity(new Intent(getBaseContext(), HomeActivity.class));
+                //endregion
 
 
                 final EditText et_l_username =(EditText)findViewById(R.id.et_l_username);
@@ -141,15 +142,61 @@ public class RegisterLoginActivity extends AppCompatActivity {
 
                 login(username,password);
 
-
-                startActivity(new Intent(getBaseContext(), HomeActivity.class));
             }
         });
 
         b_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), HomeActivity.class));
+                final EditText et_r_username =(EditText)findViewById(R.id.et_r_username);
+                final EditText et_r_password =(EditText)findViewById(R.id.et_r_password);
+                final EditText et_r_confirm_password =(EditText)findViewById(R.id.et_r_confirm_password);
+                final EditText et_persianname =(EditText)findViewById(R.id.et_persianname);
+                final EditText et_email =(EditText)findViewById(R.id.et_email);
+                final TextView tv_birthday =(TextView)findViewById(R.id.tv_birthday);
+
+                String username = et_r_username.getText().toString();
+                String password = et_r_password.getText().toString();
+                String password_confirm = et_r_confirm_password.getText().toString();
+                String persianname = et_persianname.getText().toString();
+                String email = et_email.getText().toString();
+                String birthday = tv_birthday.getText().toString();
+
+                if (username.length()<4) {
+                    et_r_username.setError("نام کاربری نباید کمتر از 4 کاراکتر باشد");
+                    et_r_username.requestFocus();
+                    return;
+                }
+
+                if (password.length()<4) {
+                    et_r_password.setError("رمز عبور نباید کمتر از 4 رقم باشد");
+                    et_r_password.requestFocus();
+                    return;
+                }
+
+                if (password_confirm.length()<4 ) {
+                    et_r_confirm_password.setError("رمز عبور نباید کمتر از 4 رقم باشد");
+                    et_r_confirm_password.requestFocus();
+                    return;
+                }else if (!password.equalsIgnoreCase(password_confirm)){
+                    et_r_confirm_password.setError("رمز یکسان وارد نشده است");
+                    et_r_confirm_password.requestFocus();
+                }
+
+                if (email.length()<11 && email.indexOf("@")==-1 && email.indexOf(".")==-1) {
+                    et_email.setError("ایمیل صحیح وارد نشده است");
+                    et_email.requestFocus();
+                    return;
+                }
+
+                if (birthday.length()<1 ) {
+                    et_email.setError("تاریخ تولد برای پیشنهاد برنامه ی تمرینی لازم است");
+                    et_email.requestFocus();
+                    return;
+                }
+
+
+                register(username,password,persianname,email,birthday);
             }
         });
 
@@ -216,7 +263,8 @@ public class RegisterLoginActivity extends AppCompatActivity {
                     if (result.getMsg().equalsIgnoreCase("success")) {
                         App.userUtil.setLogin(user);
                         ToastUtil.ShowToast(RegisterLoginActivity.this,"ورود با موفقیت انجام شد");
-                        startActivity(new Intent(getBaseContext(),HomeActivity.class));
+                        setResult(Activity.RESULT_OK);
+                        finish();
                     }else if (result.getMsg().equalsIgnoreCase("error occured!"))
                         ToastUtil.ShowToast(RegisterLoginActivity.this, "در ورود خطایی رخ داده است");
                     else if (result.getMsg().equalsIgnoreCase("User Doesn’t Exist")){
@@ -230,27 +278,54 @@ public class RegisterLoginActivity extends AppCompatActivity {
                     onFailure(call,new ResponseNullException("error sended of onResponse -> response = null "));
                 }
 
-/*
+            }
 
-//                p_loadCity.setVisibility(View.GONE);
 
-                SortUtil sortUtil = new SortUtil();
-                Map<String, CategoryData> category = sortUtil.SortByAlphabet(categoryData);
+            @Override
+            public void onFailure(Call<ServiceResponse<UserModel>> call, Throwable t) {
 
-                ArrayList<mCategory> cities = response.body();
-                if (cities!=null && cities.size()!=0) {
-                    listview.setVisibility(View.VISIBLE);
-                    ArrayList<String> listItems = new ArrayList<>();
-                    for (int i=0;i<cities.size();i++)
-                    {
-                        listItems.add(cities.get(i).getCategoryDetail());
+//                p_loading.setVisibility(View.GONE);
+                ToastUtil.ShowToast(RegisterLoginActivity.this, "اتصال به اینترنت را بررسی کنید");
+
+            }
+
+        });
+
+    }
+
+
+
+
+    private void register(final String username, final String password, String persianname, String email, String birthday){
+
+        ServiceApi api = ge_WC.retrofitJSON.create(ServiceApi.class);
+        final Call<ServiceResponse<UserModel>> call = api.login(username, password);
+        call.enqueue(new Callback<ServiceResponse<UserModel>>() {
+            @Override
+            public void onResponse(Call<ServiceResponse<UserModel>> call, Response<ServiceResponse<UserModel>> response) {
+
+//                p_loading.setVisibility(View.GONE);
+                ServiceResponse<UserModel> result = response.body();
+                UserModel user = result.getData();
+                if (user != null) {
+//                    if (login.getStatus().equalsIgnoreCase("success")){
+                    if (result.getMsg().equalsIgnoreCase("success")) {
+                        App.userUtil.setLogin(user);
+                        ToastUtil.ShowToast(RegisterLoginActivity.this,"ورود با موفقیت انجام شد");
+                        setResult(Activity.RESULT_OK);
+                        finish();
+                    }else if (result.getMsg().equalsIgnoreCase("error occured!"))
+                        ToastUtil.ShowToast(RegisterLoginActivity.this, "در ورود خطایی رخ داده است");
+                    else if (result.getMsg().equalsIgnoreCase("User Doesn’t Exist")){
+                        ToastUtil.ShowToast(RegisterLoginActivity.this, "این نام کاربری موجود نیس ");
+                    }else {
+                        ToastUtil.ShowToast(RegisterLoginActivity.this, "نام کاربری یا کلمه ی عبور اشتباه وارد شده است");
                     }
 
 
-
-                }else {
-                    listview.setVisibility(View.GONE);
-                }*/
+                } else {
+                    onFailure(call,new ResponseNullException("error sended of onResponse -> response = null "));
+                }
 
             }
 
@@ -261,17 +336,11 @@ public class RegisterLoginActivity extends AppCompatActivity {
 //                p_loading.setVisibility(View.GONE);
                 ToastUtil.ShowToast(RegisterLoginActivity.this, "اتصال به اینترنت را بررسی کنید");
 
-
-
-
             }
 
         });
 
     }
-
-
-
 
 
     @Override
@@ -307,10 +376,6 @@ public class RegisterLoginActivity extends AppCompatActivity {
 
 
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
 
 
 }

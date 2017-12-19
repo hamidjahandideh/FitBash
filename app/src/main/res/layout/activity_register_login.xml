@@ -182,9 +182,24 @@
             android:padding="5dp"
             android:textSize="20sp"/>
 
+        <EditText
+            android:id="@+id/et_r_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:drawableRight="@drawable/ic_lock_grey_700_24dp"
+            android:hint="رمز عبور"
+            android:inputType="textPassword"
+            android:gravity="center"
+            android:background="#fff"
+            android:textColorHint="#777"
+            android:textColor="#333"
+            android:padding="5dp"
+            android:textSize="20sp"/>
+
 
         <EditText
-            android:id="@+id/et_password"
+            android:id="@+id/et_persianname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"

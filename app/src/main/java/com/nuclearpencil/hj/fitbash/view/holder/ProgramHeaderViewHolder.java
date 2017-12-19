@@ -11,7 +11,8 @@ import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.nuclearpencil.hj.fitbash.R;
 import com.nuclearpencil.hj.fitbash.data.model.ProgramModel;
-import com.nuclearpencil.hj.fitbash.view.activity.home.HomeActivity;
+import com.nuclearpencil.hj.fitbash.view.activity.BaseActivity;
+import com.nuclearpencil.hj.fitbash.view.activity.HomeActivity;
 import com.nuclearpencil.hj.fitbash.view.fragment.ProgramDetailsFragment;
 
 /**
@@ -211,7 +212,7 @@ public class ProgramHeaderViewHolder extends BaseViewHolder {
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {//or itemView.setOnClickListener
-                HomeActivity activity=(HomeActivity) context;
+                BaseActivity activity=(BaseActivity) context;
                 activity.pushFragment(new ProgramDetailsFragment());
             }
         });

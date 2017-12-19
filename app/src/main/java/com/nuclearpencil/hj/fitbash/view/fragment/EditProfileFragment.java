@@ -18,10 +18,10 @@ import android.widget.ProgressBar;
 import com.nuclearpencil.hj.fitbash.R;
 
 
-public class ProfileFragment extends Fragment {
+public class EditProfileFragment extends Fragment {
 
 
-    public ProfileFragment() {
+    public EditProfileFragment() {
         // Required empty public constructor
     }
 

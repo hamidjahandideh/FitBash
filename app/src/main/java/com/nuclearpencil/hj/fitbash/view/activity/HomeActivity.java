@@ -1,6 +1,5 @@
-package com.nuclearpencil.hj.fitbash.view.activity.home;
+package com.nuclearpencil.hj.fitbash.view.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.SystemClock;
@@ -26,14 +25,13 @@ import com.nuclearpencil.hj.fitbash.app.App;
 import com.nuclearpencil.hj.fitbash.data.model.WorkoutModel;
 import com.nuclearpencil.hj.fitbash.R;
 import com.hj.calendar.CalendarFragment;
-import com.nuclearpencil.hj.fitbash.view.activity.register_login.RegisterLoginActivity;
 import com.nuclearpencil.hj.fitbash.view.fragment.DrawerFragment;
 import com.nuclearpencil.hj.fitbash.view.fragment.AdvisorFragment;
 import com.nuclearpencil.hj.fitbash.view.fragment.GymFragment;
 import com.nuclearpencil.hj.fitbash.view.fragment.MusicFragment;
 import com.nuclearpencil.hj.fitbash.view.fragment.LearnExerciseFragment;
 import com.nuclearpencil.hj.fitbash.view.fragment.MySizesFragment;
-import com.nuclearpencil.hj.fitbash.view.fragment.ProfileFragment;
+import com.nuclearpencil.hj.fitbash.view.fragment.EditProfileFragment;
 import com.nuclearpencil.hj.fitbash.view.fragment.ProgramFragment;
 import com.nuclearpencil.hj.fitbash.view.fragment.StoreFragment;
 import com.nuclearpencil.hj.fitbash.view.fragment.WorkoutFragment;
@@ -41,13 +39,10 @@ import com.nuclearpencil.hj.fitbash.view.fragment.WorkoutFragment;
 import java.util.ArrayList;
 import java.util.Stack;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
+public class HomeActivity extends BaseActivity {
 
 
-public class HomeActivity extends AppCompatActivity {
-
-    FragmentManager fragmentManager=getSupportFragmentManager();
-    Stack<Fragment> fragments=new Stack<>();
     ArrayList<WorkoutModel> list;
     int year = 1500;
     int month = 8;
@@ -69,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
             list.add(new WorkoutModel(5));
             list.add(new WorkoutModel(8));
             list.add(new WorkoutModel(1));
-            pushFragment(new ProfileFragment());
+            pushFragment(new EditProfileFragment());
         }else {
             startActivity(new Intent(this,RegisterLoginActivity.class));
             finish();
@@ -148,6 +143,7 @@ public class HomeActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.mMyCalendar:
 
+                        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);//clear all fragments
                         final CalendarFragment fragment=new CalendarFragment();
                         fragment.affectItemsToCalendar(list,year,month,day)
                                 .setCalendarListener(new calendarListener() {
@@ -175,15 +171,19 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.mMyGallery:
                          break;
                     case R.id.mMySizes:
+                        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);//clear all fragments
                         pushFragment(new MySizesFragment());
                         break;
                     case R.id.mStore:
+                        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);//clear all fragments
                         pushFragment(new StoreFragment());
                         break;
                     case R.id.mGym:
+                        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);//clear all fragments
                         pushFragment(new GymFragment());
                         break;
                     case R.id.mProgram:
+                        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);//clear all fragments
                         pushFragment(new ProgramFragment());
                         break;
                     case R.id.mTrainer:
@@ -211,27 +211,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-    public void pushFragment(Fragment fragment) {
-
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fl_base, fragment).addToBackStack("");
-        fragmentTransaction.commit();
-
-        // set the toolbar title
-        //getSupportActionBar().setTitle(title);
-    }
 
 
-    public void popFragment() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.popBackStack();
-    }
-
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
 
 
     @Override

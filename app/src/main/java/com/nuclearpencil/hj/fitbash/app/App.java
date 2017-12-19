@@ -1,9 +1,12 @@
 package com.nuclearpencil.hj.fitbash.app;
 
+import android.app.Activity;
 import android.app.Application;
+import android.support.v4.app.Fragment;
 
 import com.hj.userutil.UserUtil;
 import com.nuclearpencil.hj.fitbash.R;
+
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -21,7 +24,6 @@ public class App extends Application{
 
         userUtil=new UserUtil(this);
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder().setDefaultFontPath("fonts/BYEKAN.TTF").setFontAttrId(R.attr.fontPath).build());
-
 
     }
 

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".view.activity.home.HomeActivity"
+        <activity android:name=".view.activity.HomeActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/MaterialDrawerTheme.TranslucentStatus">
@@ -23,15 +23,17 @@
         </activity>
 
         <activity
-            android:name=".view.activity.register_login.RegisterLoginActivity"
+            android:name=".view.activity.RegisterLoginActivity"
             android:theme="@style/MaterialDrawerTheme.TranslucentStatus"
-            android:configChanges="orientation|screenSize">
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait">
+
         </activity>
         <activity
-            android:name=".view.activity.video.VideoActivity"
+            android:name=".view.activity.VideoActivity"
             android:theme="@style/MaterialDrawerTheme.TranslucentStatus" />
-        <activity android:name=".view.activity.music.MusicActivity" />
-        <activity android:name=".view.activity.new_program.NewWorkoutActivity" />
+        <activity android:name=".view.activity.MusicActivity" />
+        <activity android:name=".view.activity.NewWorkoutActivity" />
     </application>
 
 </manifest>

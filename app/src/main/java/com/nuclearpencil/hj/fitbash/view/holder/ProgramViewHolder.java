@@ -1,17 +1,15 @@
 package com.nuclearpencil.hj.fitbash.view.holder;
 
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.nuclearpencil.hj.fitbash.R;
 import com.nuclearpencil.hj.fitbash.data.model.ProgramModel;
-import com.nuclearpencil.hj.fitbash.view.activity.home.HomeActivity;
+import com.nuclearpencil.hj.fitbash.view.activity.BaseActivity;
+import com.nuclearpencil.hj.fitbash.view.activity.HomeActivity;
 import com.nuclearpencil.hj.fitbash.view.fragment.ProgramDetailsFragment;
 
 /**
@@ -96,7 +94,7 @@ public class ProgramViewHolder extends BaseViewHolder {
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {//or itemView.setOnClickListener
-                HomeActivity activity=(HomeActivity) context;
+                BaseActivity activity=(BaseActivity) context;
                 activity.pushFragment(new ProgramDetailsFragment());
             }
         });

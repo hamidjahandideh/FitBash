@@ -5,13 +5,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 
 import com.hj.userutil.model.StateType;
 import com.hj.userutil.model.UserModel;
@@ -31,10 +31,11 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.nuclearpencil.hj.fitbash.R;
 import com.nuclearpencil.hj.fitbash.app.App;
-import com.nuclearpencil.hj.fitbash.app.ge_C;
 import com.nuclearpencil.hj.fitbash.data.enums.sliderMenuItems;
-import com.nuclearpencil.hj.fitbash.view.activity.register_login.RegisterLoginActivity;
-import com.nuclearpencil.hj.fitbash.view.activity.video.VideoActivity;
+import com.nuclearpencil.hj.fitbash.view.activity.BaseActivity;
+import com.nuclearpencil.hj.fitbash.view.activity.HomeActivity;
+import com.nuclearpencil.hj.fitbash.view.activity.RegisterLoginActivity;
+import com.nuclearpencil.hj.fitbash.view.activity.VideoActivity;
 
 
 public class DrawerFragment extends Fragment {
@@ -43,6 +44,7 @@ public class DrawerFragment extends Fragment {
     ImageView iv_drawer;
     Drawer drawer;
     AccountHeader accountheader;
+
 
 
 
@@ -62,8 +64,6 @@ public class DrawerFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_drawer, container, false);
-
-
         return view;
 
     }
@@ -79,7 +79,6 @@ public class DrawerFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
         Toolbar ah_toolbar = (Toolbar) getActivity().findViewById(R.id.ah_toolbar);
         GenerateDrawer(getView());
 
@@ -89,37 +88,23 @@ public class DrawerFragment extends Fragment {
 
     private void GenerateDrawer(View view) {
 
-        App.userUtil.addListener(new OnLoginStateChange() {
+        App.userUtil.addLoginStateListener(new OnLoginStateChange() {
             @Override
             public void onLoginStateChange(StateType stateType, UserModel user) {
-                if (stateType==StateType.LoggedIn) {
-                    GenerateUserProfile();
-                } else {
-                    GenerateGuestProfile();
-                }
 
-                if (stateType==StateType.LoggedIn) {
-                    accountheader.removeProfile(ge_C.Profile.Drawer_GuestID);
+                if (getActivity()!=null){
+                    accountheader.clear();
                     GenerateUserProfile();
-                } else if (stateType==StateType.LoggedOut){
-                    accountheader.removeProfile(ge_C.Profile.Drawer_UserID);
-                    GenerateGuestProfile();
                 }
-
 
             }
+
+
         });
 
 
-
-        iv_drawer = (ImageView) view.findViewById(R.id.iv_drawer);
         GenerateAccountHeader();
-        if (App.userUtil.isLogged()) {
-            GenerateUserProfile();
-        } else {
-            GenerateGuestProfile();
-        }
-
+        GenerateUserProfile();
 
         drawer = new DrawerBuilder()
                 .withActivity(getActivity())
@@ -129,7 +114,14 @@ public class DrawerFragment extends Fragment {
 //                .withHeader(accountheader.getView())
                 .addDrawerItems(
                         //MikepenzDrawerlibrary\src\main\java\com\mikepenz\materialdrawer\model\interfaces
-                        new SecondaryDrawerItem().withIdentifier(sliderMenuItems.Main.id).withSelectable(false).withName("صفحه ی اصلی").withIcon(new IconicsDrawable(getActivity(), FontAwesome.Icon.faw_home).color(Color.rgb(180, 180, 180))),
+                        new SecondaryDrawerItem().withIdentifier(sliderMenuItems.Main.id).withSelectable(false).withName("صفحه ی اصلی").withIcon(new IconicsDrawable(getActivity(), FontAwesome.Icon.faw_home).color(Color.rgb(180, 180, 180))).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                            @Override
+                            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                                BaseActivity activity =(BaseActivity)getContext();
+                                activity.pushFragment(new HomeFragment());
+                                return false;
+                            }
+                        }),
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withIdentifier(sliderMenuItems.Bestsellers.id).withSelectable(false).withName("پربازدیدترین ها").withIcon(new IconicsDrawable(getActivity(), GoogleMaterial.Icon.gmd_remove_red_eye).color(Color.rgb(180, 180, 180))).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                             @Override
@@ -164,8 +156,7 @@ public class DrawerFragment extends Fragment {
                         //material_drawer_item_secondary.xml in mimkepenzlibrary edited for right to left
 
                 )
-
-                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
 
@@ -191,6 +182,7 @@ public class DrawerFragment extends Fragment {
                 .build();
 
 
+        iv_drawer = (ImageView) view.findViewById(R.id.iv_drawer);
         iv_drawer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -213,42 +205,16 @@ public class DrawerFragment extends Fragment {
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
                     public boolean onProfileChanged(View view, IProfile iProfile, boolean b) {
-                        switch ((int) iProfile.getIdentifier()) {
-                            case ge_C.Profile.UsersMenu.UserInfo:
-                                startActivity(new Intent(getActivity(), VideoActivity.class));
-                                break;
-                            case ge_C.Profile.UsersMenu.Basket:
-                                startActivity(new Intent(getActivity(), VideoActivity.class));
-                                break;
-                            case ge_C.Profile.UsersMenu.Order:
-                                startActivity(new Intent(getActivity(), VideoActivity.class));
-                                break;
-                            case ge_C.Profile.UsersMenu.Exit:
-
-                                App.userUtil.setLogout(getActivity());
-
-                                break;
-                        }
-
+                        //moved to on generating profile
+                        //also calling in profile settings click [ Exit , Basket , ... ]
                         return false;
                     }
                 })
-
                 .withOnAccountHeaderSelectionViewClickListener(new AccountHeader.OnAccountHeaderSelectionViewClickListener() {
                     @Override
                     public boolean onClick(View view, IProfile iProfile) {
-                        //Toast.makeText(Activity_Main.this, "withOnAccountHeaderSelectionViewClickListener", Toast.LENGTH_LONG).show();
-                        switch ((int) iProfile.getIdentifier()) {
-
-                            case ge_C.Profile.Drawer_GuestID:// For Guest
-                                startActivityForResult(new Intent(getActivity(), RegisterLoginActivity.class), App.userUtil.ActivityRequestCode_CheckLogin);
-                                break;
-
-                            case ge_C.Profile.Drawer_UserID:// For User
-                                //startActivity(new Intent(Activity_Main.this,Activity_RegisterLogin.class));
-                                break;
-                        }
-
+//                        ToastUtil.ShowToast(getContext(),"withOnAccountHeaderSelectionViewClickListener");
+                        //moved to on generating profile
                         return false;
                     }
                 })
@@ -261,52 +227,115 @@ public class DrawerFragment extends Fragment {
 
     public void GenerateUserProfile() {
 
-        final IProfile profile_User = new ProfileDrawerItem()
-                .withName(App.userUtil.getUser().getName())
-                //.withEmail(ge_C.Login.Username)
-                .withTextColor(Color.RED)
-                .withSelectedColor(Color.BLUE)
-                .withIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ah_ic_drawer_user))
-                .withIdentifier(ge_C.Profile.Drawer_UserID);
+        if (App.userUtil.isLogged()) {//App.userUtil.getUser().getUserType()!=UserType.Temp
 
-        accountheader.addProfiles(profile_User,
-                //icon selected from  com.mikepenz.google_material_typeface_library.GoogleMaterial ,   com.mikepenz.iconics.typeface.
-                // icon pics in http://fontello.com/
-                new ProfileSettingDrawerItem().withName("اطلاعات کاربر")
-                        .withDescription("اطلاعات کاربر")
-                        .withIcon(new IconicsDrawable(getActivity(), GoogleMaterial.Icon.gmd_account_box))
-                        .withIconColor(Color.GREEN)
-                        .withIdentifier(ge_C.Profile.UsersMenu.UserInfo),
-                new ProfileSettingDrawerItem()
-                        .withName("سبد خرید")
-                        .withIcon(new IconicsDrawable(getActivity(), GoogleMaterial.Icon.gmd_shopping_basket))//.setEnabled(false),
-                        .withIdentifier(ge_C.Profile.UsersMenu.Basket),
-                new ProfileSettingDrawerItem()
-                        .withName("سفارشات")
-                        .withIcon(new IconicsDrawable(getActivity(), GoogleMaterial.Icon.gmd_format_list_numbered))//.setEnabled(false),
-                        .withIconColor(Color.GREEN)
-                        .withIdentifier(ge_C.Profile.UsersMenu.Order),
-                new ProfileSettingDrawerItem()
-                        .withName("خروج")
-                        .withIcon(new IconicsDrawable(getActivity(), FontAwesome.Icon.faw_power_off))//.setEnabled(false),
-                        .withIconColor(Color.RED)
-                        .withIdentifier(ge_C.Profile.UsersMenu.Exit));
+            accountheader.addProfiles(
+                    new ProfileDrawerItem()
+                            .withName(App.userUtil.getUser().getName())
+                            //.withEmail(Login.Username)
+                            .withTextColor(Color.RED)
+                            .withSelectedColor(Color.BLUE)
+                            .withIcon(new IconicsDrawable(getActivity(), GoogleMaterial.Icon.gmd_person).color(Color.WHITE))//ContextCompat.getDrawable(getActivity(), R.drawable.ah_ic_drawer_user)
+                            .withIdentifier(Integer.valueOf(App.userUtil.getUser().getId()))
+                            .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                                @Override
+                                public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                                    //(int) iProfile.getIdentifier()
+                                    if (!App.userUtil.isLogged()){
+                                        startActivityForResult(new Intent(getActivity(), RegisterLoginActivity.class), App.userUtil.ActivityRequestCode_CheckLogin);
+                                    }else {
+                                        BaseActivity activity =(BaseActivity)getContext();
+                                        activity.pushFragment(new EditProfileFragment());
+                                    }
+
+                                    return false;
+                                }
+                            }),
+                    //icon selected from  com.mikepenz.google_material_typeface_library.GoogleMaterial ,   com.mikepenz.iconics.typeface.
+                    // icon pics in http://fontello.com/
+                    new ProfileSettingDrawerItem().withName("اطلاعات کاربر")
+                            .withDescription("اطلاعات کاربر")
+                            .withIcon(new IconicsDrawable(getActivity(), GoogleMaterial.Icon.gmd_account_box).color(Color.WHITE))
+                            .withIconColor(Color.GREEN)
+                            .withIdentifier(Profile.UsersMenu.UserInfo)
+                            .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                                @Override
+                                public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                                    startActivity(new Intent(getActivity(), VideoActivity.class));
+                                    return false;
+                                }
+                            }),
+                    new ProfileSettingDrawerItem()
+                            .withName("سبد خرید")
+                            .withIcon(new IconicsDrawable(getActivity(), GoogleMaterial.Icon.gmd_shopping_basket).color(Color.WHITE))//.setEnabled(false),
+                            .withIdentifier(Profile.UsersMenu.Basket)
+                            .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                                @Override
+                                public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                                    startActivity(new Intent(getActivity(), VideoActivity.class));
+                                    return false;
+                                }
+                            }),
+                    new ProfileSettingDrawerItem()
+                            .withName("سفارشات")
+                            .withIcon(new IconicsDrawable(getActivity(), GoogleMaterial.Icon.gmd_format_list_numbered).color(Color.WHITE))//.setEnabled(false),
+                            .withIconColor(Color.GREEN)
+                            .withIdentifier(Profile.UsersMenu.Order)
+                            .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                                @Override
+                                public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                                    startActivity(new Intent(getActivity(), VideoActivity.class));
+                                    return false;
+                                }
+                            }),
+                    new ProfileSettingDrawerItem()
+                            .withName("خروج")
+                            .withIcon(new IconicsDrawable(getActivity(), FontAwesome.Icon.faw_power_off).color(Color.WHITE))//.setEnabled(false),
+                            .withIconColor(Color.RED)
+                            .withIdentifier(Profile.UsersMenu.Exit)
+                            .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                                @Override
+                                public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                                    App.userUtil.setLogout();
+                                    return false;
+                                }
+                            })
+            );
+
+
+        } else {
+
+            IProfile profileGuest = new ProfileDrawerItem()
+                    .withName("مهمان -> ورود")
+                    //.withEmail(Login.Username)
+                    .withTextColor(Color.RED)
+                    .withSelectedColor(Color.BLUE)
+                    .withIcon(new IconicsDrawable(getActivity(), GoogleMaterial.Icon.gmd_person).color(Color.WHITE))//ContextCompat.getDrawable(getActivity(), R.drawable.ah_ic_drawer_guest)
+                    .withIdentifier(123456)
+                    .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                        @Override
+                        public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                            //(int) iProfile.getIdentifier()
+                            if (!App.userUtil.isLogged()){
+                                startActivityForResult(new Intent(getActivity(), RegisterLoginActivity.class), App.userUtil.ActivityRequestCode_CheckLogin);
+                            }else {
+                                BaseActivity activity =(BaseActivity)getContext();
+                                activity.pushFragment(new EditProfileFragment());
+                            }
+
+                            return false;
+                        }
+                    });
+
+            accountheader.addProfiles(profileGuest);
+
+        }
+
+
     }
 
 
-    public void GenerateGuestProfile() {
 
-        IProfile profile_Guest = new ProfileDrawerItem()
-                .withName("مهمان -> ورود")
-                //.withEmail(ge_C.Login.Username)
-                .withTextColor(Color.RED)
-                .withSelectedColor(Color.BLUE)
-                .withIcon(ContextCompat.getDrawable(getActivity(), R.drawable.ah_ic_drawer_guest))
-                .withIdentifier(ge_C.Profile.Drawer_GuestID);
-
-        accountheader.addProfiles(profile_Guest);
-
-    }
 
 
 
@@ -325,19 +354,6 @@ public class DrawerFragment extends Fragment {
         } else if (position == sliderMenuItems.About.id) {
         }
 
-        /* // need static sliderMenuItems.Main.id
-        switch (position) {
-            case sliderMenuItems.Main.id:
-                fragment = new F_Main();
-                break;
-            case 1:
-                startActivity(new Intent(Activity_Main.this, Activity_Product_List.class));
-                Toast.makeText(this,"kjhjh",Toast.LENGTH_LONG).show();
-                break;
-            default:
-                break;
-        }
-        */
 
         if (fragment != null) {
 /*
@@ -357,4 +373,20 @@ public class DrawerFragment extends Fragment {
     public Drawer getDrawer() {
         return drawer;
     }
+
+
+    public static class Profile {
+
+        public static class UsersMenu {
+
+            public static final int UserInfo = 0;
+            public static final int Basket = 1;
+            public static final int Order = 2;
+            public static final int Exit = 3;
+        }
+
+    }
+
+
+
 }

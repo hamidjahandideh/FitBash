@@ -1,4 +1,4 @@
-package com.nuclearpencil.hj.fitbash.view.activity.new_program;
+package com.nuclearpencil.hj.fitbash.view.activity;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -13,7 +13,7 @@ import java.util.Calendar;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class NewWorkoutActivity extends AppCompatActivity {
+public class NewWorkoutActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +38,6 @@ public class NewWorkoutActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
 
 
 

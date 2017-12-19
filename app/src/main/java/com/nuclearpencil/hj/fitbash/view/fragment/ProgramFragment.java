@@ -1,7 +1,6 @@
 package com.nuclearpencil.hj.fitbash.view.fragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -10,7 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.nuclearpencil.hj.fitbash.R;
-import com.nuclearpencil.hj.fitbash.view.activity.home.HomeActivity;
+import com.nuclearpencil.hj.fitbash.view.activity.BaseActivity;
+import com.nuclearpencil.hj.fitbash.view.activity.HomeActivity;
 
 
 
@@ -42,7 +42,7 @@ public class ProgramFragment extends Fragment {
         cv_template.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HomeActivity activity=(HomeActivity) getActivity();
+                BaseActivity activity=(BaseActivity) getActivity();
                 activity.pushFragment(new FindProgramFragment());
 //                startActivity(new Intent(getContext(), ProgramListActivity.class));
             }
@@ -51,7 +51,7 @@ public class ProgramFragment extends Fragment {
         cv_newprogram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HomeActivity activity=(HomeActivity) getActivity();
+                BaseActivity activity=(BaseActivity) getActivity();
                 activity.pushFragment(new NewProgramFragment());
 
             }

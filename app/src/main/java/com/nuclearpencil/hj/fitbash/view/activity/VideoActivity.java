@@ -1,4 +1,4 @@
-package com.nuclearpencil.hj.fitbash.view.activity.video;
+package com.nuclearpencil.hj.fitbash.view.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

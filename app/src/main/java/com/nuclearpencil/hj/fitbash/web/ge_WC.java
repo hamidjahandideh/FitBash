@@ -1,4 +1,4 @@
-package com.nuclearpencil.hj.fitbash.app;
+package com.nuclearpencil.hj.fitbash.web;
 
 import java.util.concurrent.TimeUnit;
 
