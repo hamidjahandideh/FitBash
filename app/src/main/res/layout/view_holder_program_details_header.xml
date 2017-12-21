@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ddd">
+
+        <ImageView
+            android:id="@+id/iv_pic"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:background="@drawable/profile_noimage"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/iv_pic"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:layout_marginRight="2dp"
+            android:layout_marginLeft="2dp">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="برنامه ی هفتگی رضا و مهدی"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:textColor="#444"
+                android:textSize="16sp"
+                tools:fontPath="fonts/BYEKAN.TTF"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:layout_gravity="right">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="مهدی و رضا"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#2196F3"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="طراح :"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#444"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="4dp"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:background="#ddd">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="25">
+
+            <TextView
+                android:text="هدف اصلی"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="#777"/>
+
+            <TextView
+                android:text="بازو"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#555" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="25">
+
+            <TextView
+                android:text="برای"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="#777"/>
+
+            <TextView
+                android:text="همه"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#555"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="25">
+
+            <TextView
+                android:text="مراحل"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="#777"/>
+
+            <TextView
+                android:text="همه ی مراحل"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#555"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="25">
+
+            <TextView
+                android:text="ایجاد شده"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="#777"/>
+
+            <TextView
+                android:text="1395/09/11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#555"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ddd">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_margin="4dp">
+
+                <TextView
+                    android:text="تعداد هفته"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="9sp"
+                    android:layout_gravity="center"
+                    android:textColor="#666"
+                    />
+
+
+                <TextView
+                    android:id="@+id/tvTotalWeek"
+                    android:text="5"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:textSize="20sp"
+                    android:textColor="#eee"
+                    android:background="@drawable/aw_cycrle_bg"
+                    android:gravity="center"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_margin="4dp">
+
+                <TextView
+                    android:text="میانگین روزهای تمرین در هفته"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="9sp"
+                    android:layout_gravity="center"
+                    android:textColor="#666" />
+
+                <TextView
+                    android:id="@+id/tvAvarageWeek"
+                    android:text="5"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:textSize="20sp"
+                    android:textColor="#eee"
+                    android:background="@drawable/aw_cycrle_bg"
+                    android:gravity="center"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_margin="4dp">
+
+                <TextView
+                    android:text="میانگین ساعت در هفته"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="9sp"
+                    android:layout_gravity="center"
+                    android:textColor="#666" />
+
+                <TextView
+                    android:id="@+id/tvAvarageTime"
+                    android:text="00:48"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:textSize="20sp"
+                    android:textColor="#eee"
+                    android:background="@drawable/aw_cycrle_bg"
+                    android:gravity="center"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_margin="4dp">
+
+                <TextView
+                    android:text="مجموع ساعت در هفته"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="9sp"
+                    android:layout_gravity="center"
+                    android:textColor="#666" />
+
+                <TextView
+                    android:text="04:27"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:textSize="20sp"
+                    android:textColor="#eee"
+                    android:background="@drawable/aw_cycrle_bg"
+                    android:gravity="center"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_margin="4dp">
+
+                <TextView
+                    android:text="تمرین هوازی در هفته"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="9sp"
+                    android:layout_gravity="center"
+                    android:textColor="#666" />
+
+                <TextView
+                    android:text="1:34"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:textSize="20sp"
+                    android:textColor="#eee"
+                    android:background="@drawable/aw_cycrle_bg"
+                    android:gravity="center"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+
+</LinearLayout>
+

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.nuclearpencil.hj.fitbash.R;
 import com.nuclearpencil.hj.fitbash.data.model.ProgramModel;
-import com.nuclearpencil.hj.fitbash.view.holder.ProgramHeaderViewHolder;
+import com.nuclearpencil.hj.fitbash.view.holder.FindProgramHeaderViewHolder;
 import com.nuclearpencil.hj.fitbash.view.holder.ProgramViewHolder;
 
 import java.util.ArrayList;
@@ -22,8 +22,8 @@ public class ProgramAdapter extends RecyclerView.Adapter {
     ArrayList<ProgramModel> items;
     Context context;
     LayoutInflater layoutInflater;
-    int Header=0;
-    int Item=1;
+    public static int VIEW_TYPE_HEADER=0;
+    public static int VIEW_TYPE_ITEM=1;
 
 
     public ProgramAdapter(Context context, ArrayList<ProgramModel> items) {
@@ -36,11 +36,9 @@ public class ProgramAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        if (viewType==Header){
-            ProgramHeaderViewHolder holder=new ProgramHeaderViewHolder(context,layoutInflater.inflate(R.layout.view_holder_program_header,parent,false));
-            holder.setIsRecyclable(false);
-            return holder;
-        }else if (viewType==Item){
+        if (viewType==VIEW_TYPE_HEADER){
+            return new FindProgramHeaderViewHolder(context,layoutInflater.inflate(R.layout.view_holder_find_program_header,parent,false));
+        }else if (viewType==VIEW_TYPE_ITEM){
             return new ProgramViewHolder(context,layoutInflater.inflate(R.layout.view_holder_program_item, parent, false));
         }else {
             return null;
@@ -51,7 +49,7 @@ public class ProgramAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         if (position==0){
-            ProgramHeaderViewHolder headerViewHolder = (ProgramHeaderViewHolder) holder;
+            FindProgramHeaderViewHolder headerViewHolder = (FindProgramHeaderViewHolder) holder;
             headerViewHolder.bind(null,-500);
         }else {
             final ProgramViewHolder myholder = (ProgramViewHolder) holder;
@@ -63,9 +61,9 @@ public class ProgramAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemViewType(int position) {
         if (position==0){
-            return Header;//header
+            return VIEW_TYPE_HEADER;//header
         }else {
-            return Item;//item
+            return VIEW_TYPE_ITEM;//item
         }
 
     }
@@ -73,7 +71,7 @@ public class ProgramAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return items.size()+1;
+        return items.size()+1;//+1 for header
     }
 
 

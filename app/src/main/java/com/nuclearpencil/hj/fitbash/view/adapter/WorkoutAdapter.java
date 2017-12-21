@@ -21,8 +21,8 @@ public class WorkoutAdapter extends RecyclerView.Adapter {
     LayoutInflater layoutInflater;
     WorkoutModel workoutModel;
     ExcerciseItemClickListener excerciseItemClickListener;
-    int Header=0;
-    int Item=1;
+    int HEADER =0;
+    int ITEM =1;
 
 
     public WorkoutAdapter(Context context, WorkoutModel workoutModel, ExcerciseItemClickListener excerciseItemClickListener) {
@@ -36,9 +36,9 @@ public class WorkoutAdapter extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType==Header){
+        if (viewType== HEADER){
             return new WorkoutViewHolder(context,layoutInflater.inflate(R.layout.view_holder_excercise_header,parent,false));
-        }else if (viewType==Item){
+        }else if (viewType== ITEM){
             return new ExcerciseViewHolder(context,layoutInflater.inflate(R.layout.view_holder_excercise_item,parent,false));
         }else {
             return null;

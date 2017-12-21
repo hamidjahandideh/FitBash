@@ -109,15 +109,68 @@ public class FindProgramFragment extends Fragment {
         programModels.add(new ProgramModel(1,"aaa"));
         programModels.add(new ProgramModel(1,"aaa"));
         programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
+        programModels.add(new ProgramModel(1,"aaa"));
         //endregion
 
 
         ProgramListViewAdapter programListViewAdapter=new ProgramListViewAdapter(getContext(),programModels);
         ProgramAdapter adapter = new ProgramAdapter(getActivity(), programModels);
+
         internetViewer = new InternetViewer(getActivity(), (ViewGroup) rootview.findViewById(R.id.llList), ListModel.RecyclerView, adapter, 5, new LoadItems() {
             @Override
             public void onLoad(int page) {
                 getItems(page);
+
             }
         }) {
             @Override
@@ -127,7 +180,12 @@ public class FindProgramFragment extends Fragment {
                 //layoutManager.setAutoMeasureEnabled(true);
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setHasFixedSize(true);
-                recyclerView.getRecycledViewPool().setMaxRecycledViews(0,0);//for prevent header item of recycling
+
+                //region dont recycle
+                recyclerView.getRecycledViewPool().setMaxRecycledViews(ProgramAdapter.VIEW_TYPE_HEADER,1);//1 for count of remaining items //////// for prevent header item of recreating
+                recyclerView.getRecycledViewPool().setMaxRecycledViews(ProgramAdapter.VIEW_TYPE_ITEM,7);// optional [ not completelt tested ]
+//                RecyclerView.ViewHolder c = recyclerView.getRecycledViewPool().getRecycledView(ProgramAdapter.VIEW_TYPE_HEADER);
+                //endregion
             }
 
             @Override
@@ -191,9 +249,7 @@ public class FindProgramFragment extends Fragment {
                 }else {
 //                    internetViewer.showTryAgainToast(t);
                 }
-
-
-//                internetViewer.hideInternetView(View.GONE);//or View.INVISIBLE
+//              internetViewer.hideInternetView(View.GONE);//or View.INVISIBLE
 
             }
 

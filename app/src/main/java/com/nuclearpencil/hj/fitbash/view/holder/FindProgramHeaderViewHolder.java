@@ -19,7 +19,7 @@ import com.nuclearpencil.hj.fitbash.view.fragment.ProgramDetailsFragment;
  * Created by Hamid on 12/2/2017.
  */
 
-public class ProgramHeaderViewHolder extends BaseViewHolder {
+public class FindProgramHeaderViewHolder extends BaseViewHolder {
 
     ViewGroup rootView;
     TextView tv_title;
@@ -27,7 +27,7 @@ public class ProgramHeaderViewHolder extends BaseViewHolder {
 //            ProgressView progressbar;
 
 
-    public ProgramHeaderViewHolder(final Context context, View itemView) {
+    public FindProgramHeaderViewHolder(final Context context, View itemView) {
         super(context,itemView);
 
 
@@ -37,7 +37,6 @@ public class ProgramHeaderViewHolder extends BaseViewHolder {
         RelativeLayout rl_gender_age = (RelativeLayout) rootView.findViewById(R.id.rl_gender_age);
         RelativeLayout rl_days_count = (RelativeLayout) rootView.findViewById(R.id.rl_days_count);
         RelativeLayout rl_weeks = (RelativeLayout) rootView.findViewById(R.id.rl_weeks);
-
 
         rl_goal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -205,6 +204,10 @@ public class ProgramHeaderViewHolder extends BaseViewHolder {
 
     @Override
     public void bind(Object object, final int position) {
+
+//        setIsRecyclable(false);
+//        setIsRecyclable(true);
+
 
         final ProgramModel programModel =(ProgramModel) object;
 

@@ -15,10 +15,10 @@ import com.hj.internetviewer.enums.ListModel;
 import com.hj.internetviewer.interfaces.LoadItems;
 import com.hj.internetviewer.model.ResponseNullException;
 import com.nuclearpencil.hj.fitbash.R;
+import com.nuclearpencil.hj.fitbash.view.adapter.ProgramDetailsAdapter;
 import com.nuclearpencil.hj.fitbash.web.ge_WC;
 import com.nuclearpencil.hj.fitbash.data.model.ProgramModel;
 import com.nuclearpencil.hj.fitbash.data.model.WorkoutWeekModel;
-import com.nuclearpencil.hj.fitbash.view.adapter.WorkoutWeekAdapter;
 import com.nuclearpencil.hj.fitbash.web.api.ServiceApi;
 import com.nuclearpencil.hj.fitbash.web.api.ServiceResponse;
 
@@ -66,7 +66,7 @@ public class ProgramDetailsFragment extends Fragment {
 
         //endregion
 
-        WorkoutWeekAdapter adapter = new WorkoutWeekAdapter(getActivity(), workoutWeekModels);
+        ProgramDetailsAdapter adapter = new ProgramDetailsAdapter(getActivity(), workoutWeekModels);
         internetViewer = new InternetViewer(getContext(), (ViewGroup) rootview.findViewById(R.id.llList), ListModel.RecyclerView, adapter, 5, new LoadItems() {
             @Override
             public void onLoad(int page) {
@@ -103,7 +103,6 @@ public class ProgramDetailsFragment extends Fragment {
 
     private void getItems(final int page) {
 
-
         internetViewer.setLoading(true);
         ServiceApi categoryItemsApi = ge_WC.retrofitJSON.create(ServiceApi.class);
         final Call<ServiceResponse<ArrayList<ProgramModel>>> call = categoryItemsApi.getList(page);
@@ -116,7 +115,7 @@ public class ProgramDetailsFragment extends Fragment {
                     ServiceResponse<ArrayList<ProgramModel>> response1 = response.body();
                     final ArrayList<ProgramModel> videos = response1.getData();
 
-/*                    WorkoutWeekAdapter adapter = (WorkoutWeekAdapter) internet.getAdapter();
+/*                    ProgramDetailsAdapter adapter = (ProgramDetailsAdapter) internet.getAdapter();
                     adapter.addItems(videos);*/
 
                 } else {
@@ -129,13 +128,16 @@ public class ProgramDetailsFragment extends Fragment {
             @Override
             public void onFailure(Call<ServiceResponse<ArrayList<ProgramModel>>> call, Throwable t) {
 
-                if (page==1){
-                    internetViewer.showTryAgain(t);
-                }else {
-                    internetViewer.showTryAgainToast(t);
-                }
-//                internet.hideInternetView(View.GONE);//or View.INVISIBLE
+//                internetViewer.showTryAgainView(t);
+//                internetViewer.showTryAgainSnack(t);
+//                internetViewer.showTryAgainToast(t);
 
+                if (page==1){
+//                    internetViewer.showTryAgain(t);
+                }else {
+//                    internetViewer.showTryAgainToast(t);
+                }
+//              internetViewer.hideInternetView(View.GONE);//or View.INVISIBLE
 
             }
 
